@@ -9,7 +9,7 @@ jQuery(document).ready(function($) {
                     {{ if .Site.Params.startxLocation }} 'startx', {{ end }}
                     {{ if .Site.Params.exitLocation }} 'exit', {{ end }}
                     {{ if .Site.Params.misc }}{{ .Site.Params.misc.commandName | default "misc"}},{{end}}
-                    {{ if not .Site.Params.hideSource }} 'source' {{ end }}
+                    // {{ if not .Site.Params.hideSource }} 'source' {{ end }}
                     ] 
 
     $('body').terminal(function(command, term) {
@@ -184,20 +184,20 @@ jQuery(document).ready(function($) {
                   "\n" + availableCommands.join(' ')+ '\n') 
     }
 
-      function source() {
-          term.echo("        _______            \n"+
-                    "       |       |           \n"+
-                    "       |       |           \n"+
-                    "       |_______|_______    \n"+
-	                "               |       |   \n"+
-                    "               |       |   \n"+
-                    " ______________|_______|   \n"+
-                    "|      |       |       |   \n"+
-                    "|      |       |       |   \n"+
-                    "|______|_______|_______|   \n"+
-                    "[[;red;]May the source be with you]\n"+
-                    "[[;grey;]https://github.com/4s3ti/terminalcv\n");
-      }
+    //   function source() {
+    //       term.echo("        _______            \n"+
+    //                 "       |       |           \n"+
+    //                 "       |       |           \n"+
+    //                 "       |_______|_______    \n"+
+	//                 "               |       |   \n"+
+    //                 "               |       |   \n"+
+    //                 " ______________|_______|   \n"+
+    //                 "|      |       |       |   \n"+
+    //                 "|      |       |       |   \n"+
+    //                 "|______|_______|_______|   \n"+
+    //                 "[[;red;]May the source be with you]\n"+
+    //                 "[[;grey;]https://github.com/4s3ti/terminalcv\n");
+    //   }
 
     //Funciton used by StartX to draw the progressBar
     function progress(percent, width) {
@@ -251,12 +251,6 @@ jQuery(document).ready(function($) {
             case 'skills':
                 skills();
                 break;
-            case 'softskills':
-                softskills();
-                break;
-            case 'languages':
-                languages();
-                break;
             case 'projects':
                 projects();
                 break;
@@ -275,15 +269,13 @@ jQuery(document).ready(function($) {
                 work();
                 education();
                 skills();
-                softskills();
-                languages();
                 projects();
 		certifications();
                 {{ if .Site.Params.misc }}
                     misc();
                 {{ end }}
                 {{ if not .Site.Params.hideSource }}
-                    source();
+                    // source();
                 {{ end }}
                 break;
             {{ if .Site.Params.startxLocation }}
